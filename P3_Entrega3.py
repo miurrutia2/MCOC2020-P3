@@ -50,7 +50,7 @@ for dt in dts:
 		eje_y.append(u[k, 2])
 
 	subplot(3,1,1)
-	plot(eje_x, eje_y, label=f"{dt}")
+	plot(eje_x, eje_y, label=f"Malla {n} \u0394t = {dt} (s) ")
 	ylabel("Temperatura [C]")
 	xlabel("Tiempo [horas]")
 	grid(True)
@@ -85,7 +85,7 @@ for dt in dts:
 		eje_y.append(u[k, 4])
 
 	subplot(3,1,2)
-	plot(eje_x, eje_y, label=f"{dt}")
+	plot(eje_x, eje_y, label=f"Malla {n} \u0394t = {dt} (s) ")
 	ylabel("Temperatura [C]")
 	xlabel("Tiempo [horas]")
 	grid(True)
@@ -118,11 +118,11 @@ for dt in dts:
 		eje_y.append(u[k, 8])
 
 	subplot(3,1,3)
-	plot(eje_x, eje_y, label=f"{dt}")
+	plot(eje_x, eje_y, label=f"Malla {n} \u0394t = {dt} (s) ")
 	ylabel("Temperatura [C]")
 	xlabel("Tiempo [horas]")
 	grid(True)
-	legend()
+	legend(loc="upper right")
 
 title("x = {}m".format('%.3f' % x[8]))
 

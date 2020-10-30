@@ -1,7 +1,9 @@
 
 
-
+# Verificar código 1-D replicando los resultados de la sección 4.5 de la memoria de Contreras
 ![](Grafico_p1.png)
+
+Como se logra apreciar en los tres gráficos se observa que las curvas se mantienen bastante similares para distintos intervalos de tiempo, además estas curvas se asemejan bastante a la solución analítica.
 
 # Discretización de la condición de borde natural
 

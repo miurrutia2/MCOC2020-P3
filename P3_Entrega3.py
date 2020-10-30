@@ -51,10 +51,12 @@ for dt in dts:
 
 	subplot(3,1,1)
 	plot(eje_x, eje_y, label=f"{dt}")
+	ylabel("Temperatura [C]")
+	xlabel("Tiempo [horas]")
 	grid(True)
 	legend()
 
-title("x = {}".format(x[2]))
+title("x = {}m".format('%.3f' % x[2]))
 
 for dt in dts:
 	eje_x=[] 
@@ -84,9 +86,11 @@ for dt in dts:
 
 	subplot(3,1,2)
 	plot(eje_x, eje_y, label=f"{dt}")
+	ylabel("Temperatura [C]")
+	xlabel("Tiempo [horas]")
 	grid(True)
 	legend()
-title("x = {}".format(x[4]))
+title("x = {}m".format('%.3f' % x[4]))
 for dt in dts:
 	eje_x=[] 
 	eje_y=[]
@@ -115,9 +119,12 @@ for dt in dts:
 
 	subplot(3,1,3)
 	plot(eje_x, eje_y, label=f"{dt}")
+	ylabel("Temperatura [C]")
+	xlabel("Tiempo [horas]")
 	grid(True)
 	legend()
 
-title("x = {}".format(x[8]))
+title("x = {}m".format('%.3f' % x[8]))
+
 tight_layout()
 show()

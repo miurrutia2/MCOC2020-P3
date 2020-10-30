@@ -125,5 +125,6 @@ for dt in dts:
 	legend()
 
 title("x = {}m".format('%.3f' % x[8]))
+
 tight_layout()
 show()

@@ -119,5 +119,5 @@ for dt in dts:
 	legend()
 
 title("x = {}".format(x[8]))
-
+tight_layout()
 show()

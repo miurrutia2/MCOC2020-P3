@@ -122,7 +122,7 @@ for dt in dts:
 	ylabel("Temperatura [C]")
 	xlabel("Tiempo [horas]")
 	grid(True)
-	legend()
+	legend(loc="upper right")
 
 title("x = {}m".format('%.3f' % x[8]))
 

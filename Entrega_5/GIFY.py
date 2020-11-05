@@ -9,8 +9,8 @@ def natural_keys(text):
     return[atoi(c) for c in re.split(r'(\d+)', text)]
 
 #Frame
-fp_in = "Caso2/frame_*.png"
-fp_out = "caso_2.gif"
+fp_in = "Caso3/frame_*.png"
+fp_out = "caso_3.gif"
 
 listaImagenes = sorted(glob.glob(fp_in))
 print("sorted(glob.glob(fp_in)): ", listaImagenes)

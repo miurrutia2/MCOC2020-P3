@@ -172,7 +172,7 @@ savefig("Caso_7.png", dpi=320)
 show()
 
 figure(3)
-plot(range(int32(Days / dt)), u_0, label='Superficie')
+plot(range(int32(Days / dt)), u_0, label="ambiente", linestyle=":",color="black")
 plot(range(int32(Days / dt)), P1, label='P1')
 plot(range(int32(Days / dt)), P2, label='P2')
 plot(range(int32(Days / dt)), P3, label='P3')

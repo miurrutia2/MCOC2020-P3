@@ -134,7 +134,7 @@ for k in range(int32(Days/dt)):
     u_k[0, :] = 20. #Borde Izquierdo
     u_k[:, 0] = 20. #Borde Inferior
     u_k[:, -1] = 0. #Borde Superior
-    u_k[-1, :] = 0. #Borde Derecho
+    u_k[-1, :] = u_k[-2,:] - 0 * dx #Borde Derecho
     
     u_0[k] = u_k[int(Nx / 2), -1]
     u_N4[k] = u_k[int(Nx / 2), int(Ny / 4)]
@@ -156,7 +156,7 @@ for k in range(int32(Days/dt)):
 figure(2)
 plot(range(int32(Days / dt)), u_0, label='Superficie')
 plot(range(int32(Days / dt)), u_N4, label='N/4')
-plot(range(int32(Days / dt)), u_2N4, label='N/2')
+plot(range(int32(Days / dt)), u_2N4, label='2N/4')
 plot(range(int32(Days / dt)), u_3N4, label='3N/4')
 title("Evolución de temperatura")
 legend()

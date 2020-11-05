@@ -92,6 +92,11 @@ u_N4 = zeros(int32(Days / dt))
 u_2N4 = zeros(int32(Days / dt))
 u_3N4 = zeros(int32(Days / dt))
 
+
+P1 = zeros(int32(Days / dt))
+P2 = zeros(int32(Days / dt))
+P3 = zeros(int32(Days / dt))
+
 def truncate(n, decimals=0):
     multiplier = 10 ** decimals
     return int(n* multiplier) / multiplier
@@ -140,6 +145,10 @@ for k in range(int32(Days/dt)):
     u_N4[k] = u_k[int(Nx / 2), int(Ny / 4)]
     u_2N4[k] = u_k[int(Nx / 2), int(2 * Ny / 4)]
     u_3N4[k] = u_k[int(Nx / 2), int(3 * Ny / 4)]
+
+    P1[k] = u_k[int(Nx / 2), int(Ny / 4)]
+    P2[k] = u_k[int(Nx / 2), int(3* Ny / 4)]
+    P3[k] = u_k[int(3*Nx / 4), int(3 * Ny / 4)]
     
     #Graicando en d_next
     if t > next_t:
@@ -161,4 +170,15 @@ plot(range(int32(Days / dt)), u_3N4, label='3N/4')
 title("Evolución de temperatura")
 legend()
 savefig("Caso_2.png", dpi=320)
+show()
+
+
+figure(3)
+plot(range(int32(Days / dt)), u_0, label='Superficie')
+plot(range(int32(Days / dt)), P1, label='P1')
+plot(range(int32(Days / dt)), P2, label='P2')
+plot(range(int32(Days / dt)), P3, label='P3')
+title("Evolución de temperatura")
+legend()
+savefig("Caso_2_puntos.png", dpi=320)
 show()

@@ -55,7 +55,7 @@ u_k = zeros((Nx + 1, Ny + 1), dtype=double)
 u_km1 = zeros((Nx + 1, Ny + 1), dtype=double)
 
 #Condicion de Borde Inicial
-u_k[:, :] = 10. #Son 20 grados en todas partes
+u_k[:, :] = 10. #Son 10 grados en todas partes
 
 #Parámetros para el hierro
 dt = 0.01 #s

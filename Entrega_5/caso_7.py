@@ -84,7 +84,7 @@ next_t = 0
 framenum = 0
 
 T = 1 * dia
-Days = 1 * T #Cantidad de Dias a Simular
+Days = 4 * T #Cantidad de Dias a Simular
 
 #Vectores con temperatura acumulada
 u_0 = zeros(int32(Days / dt))
@@ -105,11 +105,11 @@ for k in range(int32(Days/dt)):
     titulo = "k = {0:05.0f}".format(k) + " t = {0:02.0f}d {1:02.0f}h {2:02.0f}m ".format(dias, horas, minutos)
     print(titulo)
     
-    Tambiental = 20. + 10 * sin((2 * pi / T) * t)    #Se inicia en 20º y sube 10º con perido T de un dia
+    Tambiental = 20. + 10.*sin((2*pi/T)*t)    #Se inicia en 20º y sube 10º con perido T de un dia
     
 #Condiciones de Borde Eseciales    
-    u_k[0, :] = u_k[-1, :] - 0 * dx #Borde Izquierdo, con gradiente 0
-    u_k[:, 0] =  u_k[:, -1] - 0. * dy #Borde Inferior, con gradiente 0
+    u_k[0, :] = u_k[-2, :] - 0 * dx #Borde Izquierdo, con gradiente 0
+    u_k[:, 0] =  20 #Borde Inferior, con gradiente 0
     u_k[:, -1] = Tambiental #Borde Superior, con gradiente 0
     u_k[-1, :] = u_k[-2, :] - 0. * dx  #Borde Derecho, con gradiente 0
     
@@ -131,15 +131,15 @@ for k in range(int32(Days/dt)):
     u_k = u_km1
     
     #Reetablecen condiciones de Borde para asegurar cumplimiento
-    u_k[0, :] = 10. #Borde Izquierdo
-    u_k[:, 0] =  u_k[:, -1] - 0. * dy #Borde Inferior, con gradiente 0
-    u_k[:, -1] = u_k[:, -2] - 0 * dy #Borde Superior, con gradiente 0
+    u_k[0, :] = u_k[-2, :] - 0 * dx#Borde Izquierdo
+    u_k[:, 0] =  20 #Borde Inferior, con gradiente 0
+    u_k[:, -1] = Tambiental #Borde Superior, con gradiente 0
     u_k[-1, :] = u_k[-2, :] - 0 * dx  #Borde Derecho, con gradiente 0
     
     u_0[k] = u_k[int(Nx / 2), -1]
     u_N4[k] = u_k[int(Nx / 2), int(Ny / 4)]
     u_2N4[k] = u_k[int(Nx / 2), int(2 * Ny / 4)]
-    u_3N4[k] = u_k[int(Nx / 2), int(3 * Ny / 4)]
+    u_3N4[k] = u_k[int(Nx / 4), int(3 * Ny / 4)]
     
     #Graicando en d_next
     if t > next_t:
@@ -156,7 +156,7 @@ for k in range(int32(Days/dt)):
 figure(2)
 plot(range(int32(Days / dt)), u_0, label='Superficie')
 plot(range(int32(Days / dt)), u_N4, label='N/4')
-plot(range(int32(Days / dt)), u_2N4, label='N/2')
+plot(range(int32(Days / dt)), u_2N4, label='2N/4')
 plot(range(int32(Days / dt)), u_3N4, label='3N/4')
 title("Evolución de temperatura")
 legend()

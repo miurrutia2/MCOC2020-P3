@@ -146,7 +146,7 @@ for k in range(int32(Days/dt)):
         figure(1)
         imshowbien(u_k)
         title(titulo)
-        savefig("Caso 5/frame_{0:04.0f}.png".format(framenum))
+        savefig("Caso5/frame_{0:04.0f}.png".format(framenum))
         framenum += 1
         next_t += dnext_t
         close(1)
@@ -156,7 +156,7 @@ for k in range(int32(Days/dt)):
 figure(2)
 plot(range(int32(Days / dt)), u_0, label='Superficie')
 plot(range(int32(Days / dt)), u_N4, label='N/4')
-plot(range(int32(Days / dt)), u_2N4, label='N/2')
+plot(range(int32(Days / dt)), u_2N4, label='2N/4')
 plot(range(int32(Days / dt)), u_3N4, label='3N/4')
 title("Evolución de temperatura")
 legend()

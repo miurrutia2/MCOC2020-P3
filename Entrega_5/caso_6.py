@@ -145,7 +145,7 @@ for k in range(int32(Days/dt)):
         figure(1)
         imshowbien(u_k)
         title(titulo)
-        savefig("Caso 6/frame_{0:04.0f}.png".format(framenum))
+        savefig("Caso6/frame_{0:04.0f}.png".format(framenum))
         framenum += 1
         next_t += dnext_t
         close(1)

@@ -106,7 +106,7 @@ Esto se traduce en los siguientes términos del codigo :
 
 
 ## Caso 4
-Las condiciones de borde para el tercer caso fueron las siguientes:
+Las condiciones de borde para el cuarto caso fueron las siguientes:
   + 10º Inicial
   + Borde Superior: 0º
   + Borde Izquierdo: 20º
@@ -141,7 +141,7 @@ Esto se traduce en los siguientes términos del codigo :
 
 
 ## Caso 5
-Las condiciones de borde para el tercer caso fueron las siguientes:
+Las condiciones de borde para el quinto caso fueron las siguientes:
   + 5º Inicial
   + Borde Superior: Gradiente 0º
   + Borde Izquierdo: 25º
@@ -176,7 +176,7 @@ Esto se traduce en los siguientes términos del codigo :
 
 
 ## Caso 6
-Las condiciones de borde para el tercer caso fueron las siguientes:
+Las condiciones de borde para el sexto caso fueron las siguientes:
   + 30º Inicial
   + Borde Superior: Gradiente 0º
   + Borde Izquierdo: 10º
@@ -211,7 +211,7 @@ Esto se traduce en los siguientes términos del codigo :
 
 
 ## Caso 7
-Las condiciones de borde para el tercer caso fueron las siguientes:
+Las condiciones de borde para el séptimo caso fueron las siguientes:
   + 20º Inicial
   + Borde Superior: Temperatura ambiental (sinusoide con variación de 10º, periodo de 1 día)
   + Borde Izquierdo: Gradiente 0º

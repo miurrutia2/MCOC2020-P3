@@ -1,11 +1,12 @@
 from matplotlib.pylab import *
 from matplotlib import cm
+import numpy as np
 
 #Geometria
-a = 1.         #[m] alto del dominio
-b = 0.5         #[m] ancho del dominio
-Nx = 15       # intervalos en x
-Ny = 30       # intervalos en y
+a = 1.         
+b = 0.5         
+Nx = 15     
+Ny = 30     
 
 dx = b/Nx
 dy = a/Ny
@@ -14,9 +15,9 @@ h = dx
 
 if dx != dy:
     print("ERROR! dy != dy")
-    exit(-1)      #-1, le dice al SO que el programa falló
+    exit(-1)      
 
-#funcion de cenveniencia para calcular las coordenadas del punto (i,j)
+
 def coords(i,j):
     return(dx*i,dy*j)
 x,y = coords(4,2)
@@ -46,24 +47,24 @@ def imshowbien(u):
     margins(0.2)
     subplots_adjust(bottom=0.15)
     
-u_k = np.zeros((Nx+1, Ny+1), dtype = np.double) #dtype es el tipo de dato
-u_km1 = np.zeros((Nx+1, Ny+1),dtype = np.double) #dtype es el tipo de dato
+u_k = np.zeros((Nx+1, Ny+1), dtype = np.double) 
+u_km1 = np.zeros((Nx+1, Ny+1),dtype = np.double) 
 
 #condicion de borde inicial
-u_k[:,:] = 10              #20 grados inicial en todas partes
+u_k[:,:] = 10              
 
 #parametros problema Hierro
-dt = 0.01
-K = 79.5                   # m^2/s
-c = 450.                   # J/kg C
-ρ = 7800.                  # kg/m^3
-α = K*dt/(c*ρ*dx**2)
+dt = 0.01 #s
+K = 79.5 #m^2/s
+c = 450. #J/Kg*C
+rho = 7800. #Kg/m^3                  
+α = K*dt/(c*rho*dx**2)
 
 #informar cosas interesantes
 print(f"dt = {dt}")
 print(f"K = {K}")
 print(f"c = {c}")
-print(f"ρ = {ρ}")
+print(f"rho = {rho}")
 print(f"α = {α}")
 
 #loop en el tiempo
@@ -77,24 +78,24 @@ dnext_t = 0.5 * hora      #guardar imagen cada 30 min
 next_t = 0
 framenum = 0
 
-T = 1*dia
-Days= 1 *T                # cuantos dias quiero simular
 
-# Vectores para acumular la temperatura en puntos interesantes
+T = 1*dia
+Days= 1 *T                # Cantidad de Dias a Simular
+
+# Vectores con temperatura acumulada
 u_0 = np.zeros(np.int32(Days/dt))
 u_N4 = np.zeros(np.int32(Days/dt))
 u_2N4 = np.zeros(np.int32(Days/dt))
 u_3N4 = np.zeros(np.int32(Days/dt))
-u_0c = np.zeros(np.int32(Days/dt))
-u_N4c = np.zeros(np.int32(Days/dt))
-u_2N4c = np.zeros(np.int32(Days/dt))
-u_3N4c = np.zeros(np.int32(Days/dt))
+P1 = np.zeros(np.int32(Days/dt))
+P2 = np.zeros(np.int32(Days/dt))
+P3 = np.zeros(np.int32(Days/dt))
 
 def truncate(n,decimales=0):
     multiplier= 10**decimales
     return int(n*multiplier)/multiplier
 
-#Loop de tiempo
+
 for k in range(np.int32(Days/dt)):
     t = dt*(k+1)
     dias = truncate(t/dia, 0)
@@ -102,57 +103,52 @@ for k in range(np.int32(Days/dt)):
     minutos = truncate((t-dias*dia-horas*hora)/minuto, 0)
     titulo = "k = {0:05.0f} ".format(
         k) + " t = {0:02.0f}d {1:02.0f}h {2:02.0f}m".format(dias, horas, minutos)
+
+
+
     print(titulo)
     
     #CB esenciales, se repite en cada iteracion
     u_k[0 , :] = 20.            #Borde izquierdo
     u_k[: , 0] = 20.            #borde inferior
-    u_k[: ,-1] = 0.             #borde superior ****No esta en esta condicion
-    #u_k[-1 ,:] = 0.             #borde derecho ****No esta en esta condicion
-    dudx0 = 0.
-    #dudy0 = 0.
-    u_k[-1,:] = u_k[-2,:]-dudx0*dx            #Borde derecho gradiente dudx0
-    #u_k[:,-1] = u_k[:,-2]-dudy0*dy            #Borde superior gradiente dudy0
+    u_k[: ,-1] = 0.             
+
+    u_k[-1,:] = u_k[-2,:]-0*dx         #Borde Derecho, con gradiente 0             
     
-    #Loop en el espacio i = 1 ..... n-1
+    # Loop en el espacio desde i = 1, hasta i = n-1
     for i in range(1,Nx):
         for j in range(1,Ny):
-            #algoritmo de diferencias finitas 2-D para difusion
+            #Algortimo de diferencias finitas en 2-D para difusion
             
-            #Lapaceano
+            #Laplaciano
             nabla_u_k = (u_k[i-1, j]+u_k[i+1,j]+u_k[i,j-1]+u_k[i,j+1]-4*u_k[i,j])/h**2
             
-            #forward Euler
+            #Forard Euler
             u_km1[i,j] = u_k[i,j]+α*nabla_u_k
             
-    #avanzar la solucion a k+1
+    #Avanzar la solucion a k + 1
     u_k = u_km1
     
-    #CB esenciales, se repite en cada iteracion
     u_k[0 , :] = 20.            #Borde izquierdo
     u_k[: , 0] = 20.            #borde inferior
-    u_k[: ,-1] = 0.             #borde superior ****No esta en esta condicion
-    #u_k[-1 ,:] = 0.             #borde derecho ****No esta en esta condicion
-    dudx0 = 0.
-    #dudy0 = 0.
-    u_k[-1,:] = u_k[-2,:]-dudx0*dx            #Borde derecho gradiente dudx0
-    #u_k[:,-1] = u_k[:,-2]-dudy0*dy            #Borde superior gradiente dudy0
-    
-    
-    #Encuentro la temperatura en puntos interesantes
-    u_0[k] = u_k[int(Nx/2),-1]                    #Superficie
-    u_N4[k] = u_k[int(Nx/2),int(Ny/4)]            #N/4, medio
-    u_2N4[k] = u_k[int(Nx/2),int(2*Ny/4)]         #2N/4, medio
-    u_3N4[k] = u_k[int(Nx/2),int(3*Ny/4)]         #3N/4, medio
+    u_k[: ,-1] = 0.            
 
-        #Encuentro la temperatura en puntos interesantes
+    u_k[-1,:] = u_k[-2,:]- 0*dx            
+    
+    
+   
+    u_0[k] = u_k[int(Nx/2),-1]                    
+    u_N4[k] = u_k[int(Nx/2),int(Ny/4)]           
+    u_2N4[k] = u_k[int(Nx/2),int(2*Ny/4)]         
+    u_3N4[k] = u_k[int(Nx/2),int(3*Ny/4)]         
 
-    u_N4c[k]  = u_k[int(Nx/2),int(Ny/2)]             #N/4, medio
-    u_2N4c[k] = u_k[int(Nx/2),int(3*Ny/4)]           #2N/4, medio
-    u_3N4c[k] = u_k[int(3*Nx/4),int(3*Ny/4)]           #3N/4, medio
+
+    P1[k] = u_k[int(Nx / 2), int(Ny / 4)]
+    P2[k] = u_k[int(Nx / 2), int(3* Ny / 4)]
+    P3[k] = u_k[int(3*Nx / 4), int(3 * Ny / 4)]
+
     
-    
-    #grafico en d_next
+    #Graicando en d_next
     if t >= next_t:
         figure(1)
         imshowbien(u_k)
@@ -172,4 +168,14 @@ plot(range(int32(Days / dt)), u_3N4, label='3N/4')
 title("Evolución de temperatura")
 legend()
 savefig("Caso_4.png", dpi=320)
+show()
+
+figure(3)
+plot(range(int32(Days / dt)), u_0, label='Superficie')
+plot(range(int32(Days / dt)), P1, label='P1')
+plot(range(int32(Days / dt)), P2, label='P2')
+plot(range(int32(Days / dt)), P3, label='P3')
+title("Evolución de temperatura")
+legend()
+savefig("Caso_4_puntos.png", dpi=320)
 show()

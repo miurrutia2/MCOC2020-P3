@@ -66,6 +66,8 @@ Esto se traduce en los siguientes términos del codigo :
 ![](Entrega_5/Caso2/frame_0024.png)
 ### 14h
 ![](Entrega_5/Caso2/frame_0028.png)
+### Gif
+![](Entrega_5/caso_2.gif)
 
 
 ## Caso 3
@@ -99,6 +101,8 @@ Esto se traduce en los siguientes términos del codigo :
 ![](Entrega_5/Caso3/frame_0024.png)
 ### 14h
 ![](Entrega_5/Caso3/frame_0028.png)
+### Gif
+![](Entrega_5/caso_3.gif)
 
 
 ## Caso 4

@@ -152,7 +152,7 @@ for k in range(int32(Days/dt)):
     P3[k] = u_k[int(3*Nx / 4), int(3 * Ny / 4)]
     
     #Graicando en d_next
-    if t > next_t:
+    if t >= next_t:
         figure(1)
         imshowbien(u_k)
         title(titulo)

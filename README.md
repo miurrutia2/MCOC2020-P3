@@ -29,8 +29,8 @@ Esto se traduce en los siguientes términos del codigo :
 ![](Entrega_5/Caso1/frame_0012.png)
 ### 12h
 ![](Entrega_5/Caso1/frame_0024.png)
-### 14h
-![](Entrega_5/Caso1/frame_0028.png)
+### 24h
+![](Entrega_5/Caso1/frame_0048.png)
 ### Gif
 ![](Entrega_5/caso_1.gif)
 
@@ -64,8 +64,8 @@ Esto se traduce en los siguientes términos del codigo :
 ![](Entrega_5/Caso2/frame_0012.png)
 ### 12h
 ![](Entrega_5/Caso2/frame_0024.png)
-### 14h
-![](Entrega_5/Caso2/frame_0028.png)
+### 24h
+![](Entrega_5/Caso2/frame_0048.png)
 ### Gif
 ![](Entrega_5/caso_2.gif)
 
@@ -99,8 +99,8 @@ Esto se traduce en los siguientes términos del codigo :
 ![](Entrega_5/Caso3/frame_0012.png)
 ### 12h
 ![](Entrega_5/Caso3/frame_0024.png)
-### 14h
-![](Entrega_5/Caso3/frame_0028.png)
+### 24h
+![](Entrega_5/Caso3/frame_0048.png)
 ### Gif
 ![](Entrega_5/caso_3.gif)
 
@@ -134,8 +134,8 @@ Esto se traduce en los siguientes términos del codigo :
 ![](Entrega_5/Caso4/frame_0012.png)
 ### 12h
 ![](Entrega_5/Caso4/frame_0024.png)
-### 14h
-![](Entrega_5/Caso4/frame_0028.png)
+### 24h
+![](Entrega_5/Caso4/frame_0048.png)
 ### Gif
 ![](Entrega_5/caso_4.gif)
 
@@ -169,8 +169,8 @@ Esto se traduce en los siguientes términos del codigo :
 ![](Entrega_5/Caso5/frame_0012.png)
 ### 12h
 ![](Entrega_5/Caso5/frame_0024.png)
-### 14h
-![](Entrega_5/Caso5/frame_0028.png)
+### 24h
+![](Entrega_5/Caso5/frame_0048.png)
 ### Gif
 ![](Entrega_5/caso_5.gif)
 
@@ -204,8 +204,8 @@ Esto se traduce en los siguientes términos del codigo :
 ![](Entrega_5/Caso6/frame_0012.png)
 ### 12h
 ![](Entrega_5/Caso6/frame_0024.png)
-### 14h
-![](Entrega_5/Caso6/frame_0028.png)
+### 24h
+![](Entrega_5/Caso6/frame_0048.png)
 ### Gif
 ![](Entrega_5/caso_6.gif)
 
@@ -239,8 +239,8 @@ Esto se traduce en los siguientes términos del codigo :
 ![](Entrega_5/Caso7/frame_0012.png)
 ### 12h
 ![](Entrega_5/Caso7/frame_0024.png)
-### 14h
-![](Entrega_5/Caso7/frame_0028.png)
+### 24h
+![](Entrega_5/Caso7/frame_0048.png)
 ### Gif
 ![](Entrega_5/caso_7.gif)
 
